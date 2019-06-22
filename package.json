@@ -1,0 +1,25 @@
+{
+  "name": "sms-man-api",
+  "version": "1.0.0",
+  "description": "SMS Management API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dondrzzy/sms-man-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dondrzzy/sms-man-api/issues"
+  },
+  "homepage": "https://github.com/dondrzzy/sms-man-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.0"
+  }
+}
