@@ -4,13 +4,13 @@ var cors = require('cors');
 var path = require('path');
 const jwt = require('jsonwebtoken');
 
-// // config
-// const config = require('./config');
+// config
+const config = require('./config');
 
-// const conn = require('./config/database');
-// conn.connect();
+const conn = require('./config/database');
+conn.connect();
 
-// // routes
+// routes
 // const contactsRouter = require('./routes/contactRoutes');
 // const messageRouter = require('./routes/messageRoutes');
 
