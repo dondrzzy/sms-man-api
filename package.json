@@ -4,7 +4,7 @@
   "description": "SMS Management API",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha src/tests/**/*.test.js --exit",
+    "test": "NODE_ENV=testing nyc --reporter=html --reporter=text mocha src/tests/**/*.test.js --exit",
     "coveralls": "npm run test | coveralls"
   },
   "repository": {
