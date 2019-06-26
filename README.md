@@ -90,15 +90,15 @@ npm start or install nodemon with npm i nodemon and run nodemon
 
 | Endpoint                 | payload              | headers     | Method |
 | -------------------------| -------------------- | ----------- | ------ |
-| `/api/v1/contacts`       | [Contact](#Contact)  | [header1](header1) | `POST` |
+| `/api/v1/contacts`       | [Contact](#Contact)  | [header1](#header1) | `POST` |
 | `/api/v1/contacts`       |                      |             | `GET`  |
-| `/api/v1/contacts/login` | [loginPayload](loginPayload)  | [header1](header1) | `POST` |
-| `/api/v1/contacts/contactId` |           | [header2](header2) | `DELETE` |
-| `/api/v1/messages` | [messagePayload](messagePayload)  | [header2](header2) | `POST` |
-| `/api/v1/messages/received` |            | [header2](header2) | `GET` |
-| `/api/v1/messages/received/messageId` |            | [header2](header2) | `GET` |
-| `/api/v1/messages/sent` |            | [header2](header2) | `GET` |
-| `/api/v1/messages/sent/messageId` |            | [header2](header2) | `GET` |
+| `/api/v1/contacts/login` | [loginPayload](#loginPayload)  | [header1](#header1) | `POST` |
+| `/api/v1/contacts/contactId` |           | [header2](#header2) | `DELETE` |
+| `/api/v1/messages` | [messagePayload](#messagePayload)  | [header2](#header2) | `POST` |
+| `/api/v1/messages/received` |            | [header2](#header2) | `GET` |
+| `/api/v1/messages/received/messageId` |            | [header2](#header2) | `GET` |
+| `/api/v1/messages/sent` |            | [header2](#header2) | `GET` |
+| `/api/v1/messages/sent/messageId` |            | [header2]#(header2) | `GET` |
 
 
 ## API samples
