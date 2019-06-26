@@ -22,7 +22,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:false 
 }));
-
+app.get('/', (req, res) => {
+  res.send('Welcome to SMS-MAN-API');
+});
 app.use('/api/v1/contacts', contactsRouter);
 
 app.use(function(req, res, next){
