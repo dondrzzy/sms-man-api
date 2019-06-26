@@ -23,40 +23,49 @@ module.exports = {
     });
   },
   registerContact: (req, res) => {
+    let errors = {};
     if (!req.body.firstName) {
-      return res.status(400).json({error: 'Please provide a first name'});
+      errors.firstName = 'Please provide a first name';
     }
     if (!req.body.lastName) {
-      return res.status(400).json({error: 'Please provide a last name'});
+      errors.lastName = 'Please provide a last name';
     }
     if (!req.body.phoneNumber) {
-      return res.status(400).json({error: 'Please provide a phone number'});
+      errors.phoneNumber = 'Please provide a phone number';
     }
     if (!req.body.password) {
-      return res.status(400).json({error: 'Please provide a password'});
+      errors.password = 'Please provide a password';
     }
+    if (Object.keys(errors).length) {
+      return res.status(400).json({errors});
+    };
     var contact = new Contact({
       firstName:req.body.firstName, 
       lastName:req.body.lastName,
       phoneNumber: req.body.phoneNumber,
       password: req.body.password
     });
+
     contact.save(function(err) {
       if (err) {
         const duplicateMsg = 'Phone number already exists';
-        res.status(400).json({error: err.code === 11000 ? duplicateMsg : err});
+        return res.status(400).json({error: err.code === 11000 ? duplicateMsg : err});
       } else {
-        res.status(201).json({'message':'Contact Successfully registered'});
+        return res.status(201).json({'message':'Contact Successfully registered'});
       }
     });     
   },
   loginContact: (req, res) => {
+    let errors = {};
     if(!req.body.phoneNumber){
-      return res.status(400).json({error:'You must provide a phone number'});
+      errors.phoneNumber = 'You must provide a phone number';
     }
     if(!req.body.password){
-      return res.status(400).json({error:'You must provide a password'});
+      errors.password = 'You must provide a password';
     }
+    if (Object.keys(errors).length) {
+      return res.status(400).json({errors});
+    };
     Contact.findOne({phoneNumber:req.body.phoneNumber}).select('password').exec(function(err, contact){
       if(err){
         return res.json({error:err});
