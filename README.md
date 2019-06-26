@@ -98,7 +98,7 @@ npm start or install nodemon with npm i nodemon and run nodemon
 | `/api/v1/messages/received` |            | [header2](#header2) | `GET` |
 | `/api/v1/messages/received/messageId` |            | [header2](#header2) | `GET` |
 | `/api/v1/messages/sent` |            | [header2](#header2) | `GET` |
-| `/api/v1/messages/sent/messageId` |            | [header2]#(header2) | `GET` |
+| `/api/v1/messages/sent/messageId` |            | [header2](#header2) | `GET` |
 
 
 ## API samples
