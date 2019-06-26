@@ -69,6 +69,10 @@ npm start or install nodemon with npm i nodemon and run nodemon
 7. Use postman or anyother REST API tool to make API calls.
 
 
+> Run `npm run test` to run tests with coverage.
+
+
+
 ## Main API features
 
 - can register contact.
@@ -156,3 +160,9 @@ npm start or install nodemon with npm i nodemon and run nodemon
 	"text": "hey yah!!!"
 }
 ```
+
+
+### Author: Sibo Donald
+
+> For more enquiries: Email me at sibo.donald16@gmail.com
+
