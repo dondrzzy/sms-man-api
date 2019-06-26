@@ -39,7 +39,6 @@ describe('Contact API routes', () => {
     const res = await request(app).post('/api/v1/contacts/login')
       .send({phoneNumber: userData.phoneNumber, password: userData.password})
     return res.body;
-
   }
 
   describe('Get contacts', () => {
