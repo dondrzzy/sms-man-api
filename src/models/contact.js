@@ -25,7 +25,7 @@ let validname = function(name){
 let validPhone = function(phone){
   if(!phone){ return false; }
   else {
-    const regExp = new RegExp(/^\d{9}$/);
+    const regExp = new RegExp(/^\d{10}$/);
     return regExp.test(phone);
   }
 };
@@ -60,7 +60,7 @@ const lastNameValidators = [
 ];
 
 const phoneValidators = [
-  {validator:validPhone, message:'Phone Number is Invalid'}
+  {validator:validPhone, message:'Phone number is Invalid, should be 10 characters long.'}
 ];
 
 const passwordValidators = [
@@ -78,7 +78,6 @@ const ContactSchema = mongoose.Schema({
 //Encrypt passwords before storing them in the database
 ContactSchema.pre('save', function(next){
   var contact = this;
-  console.log('contact: ', this.password);
   if(!this.isModified('password')) return next();
   bcrypt.hash(this.password, null, null, function(err, hash){
       if(err) return next(err);

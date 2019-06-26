@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
   getAllContacts: (req, res) => {
-    Contact.find((error, contacts) => {
-      if (error) {
-        return res.status(400).json({error: error});
+    Contact.find((err, contacts) => {
+      if (err) {
+        return res.status(400).json({error: err});
       }
       res.status(200).json({contacts});
     });
@@ -77,21 +77,24 @@ module.exports = {
         if(!validPassword){
           return res.status(400).json({error:'Wrong password provided'});
         }
-        const token = jwt.sign({contactId:contact._id}, config.secret, {expiresIn:86400}); 
+        const token = jwt.sign({
+          contactId:contact._id,
+          phoneNumber: req.body.phoneNumber
+        }, config.secret, {expiresIn:86400}); 
         res.status(200).json({token:token});                    
       }
     });
   },
   deleteContact: (req, res) => {
-    Contact.findOne({_id:req.params.id}, function(err, contact){
+    Contact.findOne({_id:req.params.id, phoneNumber:req.decoded.phoneNumber}, function(err, contact){
       if(err){
-        return res.status(400).json({success:false, 'err':err});
+        return res.status(400).json({error:err});
       }
       if (!contact) {
-        return res.status(404).json({message: 'Contact not found'});
+        return res.status(404).json({error: 'Contact not found'});
       }
       contact.remove((err, result) => {
-        res.status(200).json({messgae: 'Contact successfully deleted'});
+        res.status(200).json({message: 'Contact successfully deleted'});
       })
     });
   }
