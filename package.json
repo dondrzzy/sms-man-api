@@ -4,8 +4,8 @@
   "description": "SMS Management API",
   "main": "server.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha src/tests/**/*.test.js --recursive --exit --timeout 100000",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha src/tests/**/*.test.js --exit",
+    "coveralls": "npm run test | coveralls"
   },
   "repository": {
     "type": "git",
