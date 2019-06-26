@@ -2,28 +2,19 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var path = require('path');
-var mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 // config
 const config = require('./config');
+
+const conn = require('./config/database');
+conn.connect();
 
 // routes
 const contactsRouter = require('./routes/contactRoutes');
 const messageRouter = require('./routes/messageRoutes');
 
 var app = express();
-
-//connect to db
-mongoose.connect(config.uri);
-// on conn
-mongoose.connection.on('connected', function(){
-    console.log('connected to database at 27017');
-});
-//incase of error in conn
-mongoose.connection.on('error', function(err){
-    if(err){ console.log('Error in database conn', err);}    
-});
 
 // add middleware
 app.use(cors());
