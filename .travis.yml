@@ -5,4 +5,5 @@ cache:
   - node_modules
 script:
   - npm test
-after_success: npm run coverage
+after_success:
+  - COVERALLS_REPO_TOKEN=$repo_token npm run coveralls
