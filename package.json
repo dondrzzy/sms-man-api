@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "SMS Management API",
   "main": "server.js",
+  "engines": {
+    "node": "v8.12.0"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "NODE_ENV=testing nyc --reporter=html --reporter=text --reporter=lcov mocha src/tests/**/*.test.js --exit --timeout 1000000",
