@@ -23,6 +23,10 @@ app.use(bodyParser.urlencoded({
     extended:false 
 }));
 
+app.get('/', (req, res) => {
+  return res.send('Welcome to SMS-MAN-API. Check out the docs https://github.com/dondrzzy/sms-man-api/blob/master/README.md');
+});
+
 app.use('/api/v1/contacts', contactsRouter);
 
 app.use(function(req, res, next){
